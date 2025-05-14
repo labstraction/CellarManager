@@ -40,5 +40,6 @@ namespace CellarManager.model
         {
             return $"{Name},{Alcohol},{Country},{Year}";
         }
+        //public abstract JsonBeverage ToJsonBeverage();
     }
 }

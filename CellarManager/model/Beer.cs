@@ -21,6 +21,20 @@ namespace CellarManager.model
             return $"Beer,{base.CsvFormat()},{Type},{IBU},";
         }
 
+        //public override JsonBeverage ToJsonBeverage() {
+        //    return new JsonBeverage
+        //    {
+        //        ClassName = "Beer",
+        //        Name = Name,
+        //        Alcohol = Alcohol,
+        //        Country = Country,
+        //        Year = Year,
+        //        Type = Type.ToString(),
+        //        IBU = IBU.ToString(),
+        //        Grape = string.Empty
+        //    };
+        //}
+
     }
 
     public enum BeerType

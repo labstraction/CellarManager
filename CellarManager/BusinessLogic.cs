@@ -59,5 +59,25 @@ namespace CellarManager
         {
             return Beverages;
         }
+        public List<Beverage> GetBeverages(string? searchStr)
+        {
+            if (String.IsNullOrEmpty(searchStr))
+            {
+                return Beverages;
+            }
+            // const newBeverages = Beverages.filter( bev => bev.name.toLowerCase().includes(searchStr.toLowerCase()))
+            // var newBeverages = Beverages.Where(b => b.Name.ToLower().Contains(searchStr.ToLower())).ToList();
+            var newBeverages = Beverages.Where(bev => bev.Name.Contains(searchStr, StringComparison.OrdinalIgnoreCase)).ToList();
+            return newBeverages;
+        }
+
+        public void DeleteBeverage(int index)
+        {
+            Beverages.RemoveAt(index);
+            _storage.SaveAllBeverages(Beverages);
+        }
+
+
+
     }
 }

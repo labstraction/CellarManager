@@ -36,7 +36,9 @@ namespace CellarManager
                 Console.WriteLine("1. Add Beer");
                 Console.WriteLine("2. Add Wine");
                 Console.WriteLine("3. List Beverages");
-                Console.WriteLine("4. Exit");
+                Console.WriteLine("4. Drink Beverage");
+                Console.WriteLine("5. Search Beverage");
+                Console.WriteLine("6. Exit");
                 Console.Write("Please select an option: ");
                 string? input = Console.ReadLine();
                 switch (input)
@@ -51,11 +53,44 @@ namespace CellarManager
                         ListBeverages();
                         break;
                     case "4":
+                        DeleteBeverage();
+                        break;
+                    case "5":
+                        SearchBeverage();
+                        break;
+                    case "6":
+                        Console.WriteLine("Exiting...");
                         return;
                     default:
                         Console.WriteLine("Invalid option, please try again.");
                         break;
                 }
+            }
+        }
+
+        private void SearchBeverage()
+        {
+            Console.Write("Enter the name of the beverage to search: ");
+            string? name = Console.ReadLine();
+            var beverages = _logic.GetBeverages(name);
+            foreach (var bev in beverages)
+            {
+                Console.WriteLine(bev.ToString());
+            }
+        }
+
+        private void DeleteBeverage()
+        {
+            Console.WriteLine("Select the number of the beverage to drink:");
+            ListBeverages();
+            int index = int.Parse(Console.ReadLine() ?? "0") - 1;
+            if (index >= 0)
+            {
+                _logic.DeleteBeverage(index);
+            }
+            else
+            {
+                Console.WriteLine("Invalid index.");
             }
         }
 

@@ -12,6 +12,8 @@ namespace CellarManager
         //public List<Beverage> Beverages { get; set; }
         public void AddBeer(string name, double alcohol, BeerType type, string? country, int? year, int? ibu);
         public void AddWine(string name, double alcohol, WineType type, string? country, int? year, string? grape);
+        void DeleteBeverage(int index);
         public List<Beverage> GetBeverages();
+        public List<Beverage> GetBeverages(string? name);
     }
 }
