@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CellarManager.model
 {
-    internal class Beverage
+    internal abstract class Beverage
     {
         public required string Name { get; set; }
 
