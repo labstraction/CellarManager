@@ -49,7 +49,7 @@ namespace CellarManager
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error loading beverages: {ex.Message}");
+                Console.WriteLine($"Super Error loading beverages: {ex.Message}");
             }
 
             return beverages;
